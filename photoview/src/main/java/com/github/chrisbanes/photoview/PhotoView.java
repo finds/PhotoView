@@ -174,9 +174,7 @@ public class PhotoView extends AppCompatImageView {
         return attacher.getMinimumScale();
     }
 
-    public float getMediumScale() {
-        return attacher.getMediumScale();
-    }
+
 
     public float getMaximumScale() {
         return attacher.getMaximumScale();
@@ -194,16 +192,14 @@ public class PhotoView extends AppCompatImageView {
         attacher.setMinimumScale(minimumScale);
     }
 
-    public void setMediumScale(float mediumScale) {
-        attacher.setMediumScale(mediumScale);
-    }
+
 
     public void setMaximumScale(float maximumScale) {
         attacher.setMaximumScale(maximumScale);
     }
 
-    public void setScaleLevels(float minimumScale, float mediumScale, float maximumScale) {
-        attacher.setScaleLevels(minimumScale, mediumScale, maximumScale);
+    public void setScaleLevels(float minimumScale, float maximumScale) {
+        attacher.setScaleLevels(minimumScale, maximumScale);
     }
 
     public void setOnMatrixChangeListener(OnMatrixChangedListener listener) {

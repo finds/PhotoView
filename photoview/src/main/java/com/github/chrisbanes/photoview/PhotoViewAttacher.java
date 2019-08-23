@@ -227,9 +227,7 @@ public class PhotoViewAttacher implements View.OnTouchListener,
                     float scale = getScale();
                     float x = ev.getX();
                     float y = ev.getY();
-                    if (scale < getMediumScale()) {
-                        setScale(getMediumScale(), x, y, true);
-                    } else if (scale >= getMediumScale() && scale < getMaximumScale()) {
+                    if (scale < getMaximumScale()) {
                         setScale(getMaximumScale(), x, y, true);
                     } else {
                         setScale(getMinimumScale(), x, y, true);
@@ -303,9 +301,7 @@ public class PhotoViewAttacher implements View.OnTouchListener,
         return mMinScale;
     }
 
-    public float getMediumScale() {
-        return mMidScale;
-    }
+
 
     public float getMaximumScale() {
         return mMaxScale;
@@ -389,24 +385,21 @@ public class PhotoViewAttacher implements View.OnTouchListener,
     }
 
     public void setMinimumScale(float minimumScale) {
-        Util.checkZoomLevels(minimumScale, mMidScale, mMaxScale);
+        Util.checkZoomLevels(minimumScale, mMaxScale);
         mMinScale = minimumScale;
     }
 
-    public void setMediumScale(float mediumScale) {
-        Util.checkZoomLevels(mMinScale, mediumScale, mMaxScale);
-        mMidScale = mediumScale;
-    }
+
 
     public void setMaximumScale(float maximumScale) {
-        Util.checkZoomLevels(mMinScale, mMidScale, maximumScale);
+        Util.checkZoomLevels(mMinScale, maximumScale);
         mMaxScale = maximumScale;
     }
 
-    public void setScaleLevels(float minimumScale, float mediumScale, float maximumScale) {
-        Util.checkZoomLevels(minimumScale, mediumScale, maximumScale);
+    public void setScaleLevels(float minimumScale, float maximumScale) {
+        Util.checkZoomLevels(minimumScale, maximumScale);
         mMinScale = minimumScale;
-        mMidScale = mediumScale;
+
         mMaxScale = maximumScale;
     }
 
